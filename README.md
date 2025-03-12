@@ -31,12 +31,20 @@ sudo python3 pox.py forwarding.l2_learning
 ---
 
 ## Running the Experiment
-Each part of the experiment can be executed using the following steps.
+Each part of the assignment was created individually first and then combined in the end. The codes for each individual part is given. The final combined script is named as client_server.py
 
 1. **Run Mininet Topology:**
+   To run each part individually
 ```sh
-sudo python3 assignment_2.py --option <a|b|c|d> --cc <cubic|westwood|scalable>
+sudo python3 <file_name.py>
 ```
+1. **Run Combined Mininet Topology:**
+```sh
+sudo python3 client_server.py --option <a|b|c|d> --cc <cubic|westwood|scalable>
+```
+- `<option>` specifies the experiment part (`a`, `b`, `c`, or `d`).
+- `<cc>` specifies the TCP congestion control algorithm (`cubic`, `westwood`, or `scalable`).
+
 2. **View Temporary Saved Files:**
 ```sh
 ls -lh /tmp/
@@ -73,7 +81,7 @@ To determine the maximum TCP window size from the `.pcap` file, use one of the f
 ```sh
 tshark -r h7_capture_cubic_150.pcap -T fields -e tcp.window_size_value | sort -nr | head -1
 ```
-This command sorts the window size values in descending order and returns the maximum window size recorded in the `.pcap` file.
+#### This command sorts the window size values in descending order and returns the maximum window size recorded in the `.pcap` file.
 ---
 
 ## Calculating Metrics
